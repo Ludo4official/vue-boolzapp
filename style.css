@@ -212,7 +212,50 @@ body {
     width: 100%;
     background-image: url(https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
+
+.sent {
+    align-self: flex-end;
+    background-color: #d5f9ba;
+    max-width: 60%;
+    min-width: 30%;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.received {
+    background-color: white;
+    max-width: 60%;
+    min-width: 30%;
+    border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-left: 10px;
+    align-self: flex-start;
+    position: relative;
+}
+
+.main-main > .sent > span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.7rem;
+    color: grey;
+}
+
+.main-main > .received > span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.7rem;
+    color: grey;
+}
+
 
 .emoji, .send, .text {
     width: 15%;

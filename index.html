@@ -57,7 +57,7 @@
                     </section>
 
                     <section class="contacts">
-                        <div class="contact" v-for="(contact, index) in contacts">
+                        <div class="contact" v-for="(contact, index) in contacts" @click="currentContact= index">
                             <div class="user">
                         
                                 <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
@@ -84,8 +84,8 @@
 
                     <header class="main-header">
                         <div class="user">
-                            <img src="img/avatar_1.jpg" alt="">
-                            <span>Michele</span>
+                            <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`" alt="">
+                            <span>{{ contacts[currentContact].name }}</span>
                         </div>
 
                         <div class="icons">
@@ -96,26 +96,16 @@
                     </header>
 
                     <main class="main-main">
-                        <div class="sent">
-                            ciao
+
+                        <div class="standard-message" v-for="message in contacts[currentContact].messages" :class="message.status">
+
+                            {{ message.message }}
+
                             <span>
-                                Orario fittizio
+                                {{ message.date }}
                             </span>
                         </div>
 
-                        <div class="sent">
-                            a tutti
-                            <span>
-                                Orario fittizio
-                            </span>
-                        </div>
-
-                        <div class="received">
-                            come state
-                            <span>
-                                Orario fittizio
-                            </span>
-                        </div>
                     </main>
 
                     <footer class="main-footer">
@@ -124,7 +114,7 @@
                         </div>
 
                         <div class="text">
-                            <input class="message" type="text" name="" id="" placeholder="Scrivi un messaggio...">
+                            <input @keyup.enter="sendMessage" v-model="newMessageText" class="message" type="text" name="" id="" placeholder="Scrivi un messaggio...">
                         </div>
 
                         <div class="send">

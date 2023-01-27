@@ -6,6 +6,8 @@ createApp({
 
         return {
 
+            currentContact: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -168,8 +170,34 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            newMessageText: ''
 
+        }
+
+    },
+
+    methods: {
+
+        sendMessage() {
+
+            this.contacts[this.currentContact].messages.push({
+                date: '10/01/2020 15:51:00',
+                message: this.newMessageText,
+                status: 'sent'
+            });
+
+            this.newMessageText = ''
+
+            let replyMessage = {
+                    date: '10/01/2020 15:51:00',
+                    message: 'Ok',
+                    status: 'received'
+            }
+
+            this.contacts[this.currentContact].messages.push(replyMessage);
+    
+            setTimeout(replyMessage, 2000)
         }
 
     }

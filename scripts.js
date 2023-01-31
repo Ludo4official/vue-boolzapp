@@ -188,16 +188,16 @@ createApp({
             });
 
             this.newMessageText = ''
-
-            let replyMessage = {
+    
+            setTimeout(()=> {
+                let replyMessage = {
                     date: '10/01/2020 15:51:00',
                     message: 'Ok',
                     status: 'received'
             }
 
             this.contacts[this.currentContact].messages.push(replyMessage);
-    
-            setTimeout(replyMessage, 2000)
+            }, 1000)
         }
 
     }
